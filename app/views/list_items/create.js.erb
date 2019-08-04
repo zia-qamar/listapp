@@ -1,0 +1,7 @@
+$('#modal').modal('toggle');
+<% unless @list_item.errors.present? %>
+$('#list_' + <%= @list_item.list.id %>).find('ul').append("<li class='list-group-item' id='list_item_<%=@list_item.id %>''><%= escape_javascript render(partial: 'lists/list_item', locals: { list_item: @list_item }) %></li>");
+display_success_msg("<%= flash[:notice]%>")
+<% else %>
+display_error_msg("<%= flash[:notice]%>")
+<% end %>

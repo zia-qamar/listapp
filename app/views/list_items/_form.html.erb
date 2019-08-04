@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h4 class="modal-title" id="myModalLabel"></h4>
+</div>
+<%= form_for(list_item, validate: true, html: {id: 'list_item_form', remote: true}) do |f| %>
+  <div class="modal-body">
+    <%= f.hidden_field :list_id, value: list_item.list_id %>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control", required: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+    <%= f.submit 'Submit', class: 'btn btn-primary', id: 'save_list_item' %>
+  </div>
+<% end %>
+
+
+

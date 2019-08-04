@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="title col-md-8"><%= list_item.title %></div>
+
+
+  <% if list_item.trashed? %>
+    <%= link_to raw(content_tag(:i, '', class: 'fa fa-circle') + ' Restore'), item_restore_path(id: list_item, type: 'ListItem'), remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-info'%>
+  <% else %>
+    <div class="col-md-1">
+      <%= link_to_remote_modal raw(content_tag(:i, '', class: 'fa fa-edit') + ' Edit'), edit_list_item_path(list_item), class: 'btn btn-default btn-xs'%>
+    </div>
+    <div class="col-md-1">
+      <%= link_to list_item, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-xs btn-warning' do %>
+        <i class="fa fa-trash"></i> <span>Trash</span>
+      <% end %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to list_item, method: :delete, remote: true, data: { confirm: 'Are you sure?' },class: 'btn btn-xs btn-danger' do %>
+        <i class="fa fa-trash"></i> <span>Remove</span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,5 @@
+<div class="panel-group">
+  <% @lists.each do |list| %>
+    <%= render 'lists/lists', list: list, list_items: list.list_items.trashed %>
+  <%end %>
+</div>

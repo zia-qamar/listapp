@@ -1,0 +1,34 @@
+<div class="panel panel-default" id="list_<%=list.id %>">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-6"><b><span class="list_title"><%= list.title %></span></b>
+        <% unless list.trashed? %>
+          <%= link_to_remote_modal raw(content_tag(:i, '', class: 'fa fa-edit') + ''), edit_list_path(list), class: 'btn btn-xs'%></div>
+          <%end %>
+      <div class="col-md-6">
+        <div class="pull-right">
+          <% if list.trashed? %>
+            <%= link_to raw(content_tag(:i, '', class: 'fa fa-circle') + ' Restore'), item_restore_path(id: list, type: 'List'), remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-info'%>
+          <% else %>
+            <%= link_to_remote_modal raw(content_tag(:i, '', class: 'fa fa-plus') + ' Add Item'), new_list_item_path(list_id: list), class: 'btn btn-info'%>
+            <%= link_to raw(content_tag(:i, '', class: 'fa fa-trash') + ' Trash'), list_trash_path(list), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning'%>
+            <%= link_to raw(content_tag(:i, '', class: 'fa fa-trash') + ' Remove'), list, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <% if list_items.present? %>
+      <% list_items.each do |list_item| %>
+        <li class="list-group-item" id="list_item_<%=list_item.id %>">
+          <%= render 'lists/list_item', list_item: list_item %>
+        </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

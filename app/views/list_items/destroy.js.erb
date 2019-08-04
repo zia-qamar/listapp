@@ -1,0 +1,6 @@
+<% if @removed %>
+$('#list_item_' + <%= @item %>).remove();
+display_success_msg("<%= flash[:notice]%>")
+<% else %>
+display_error_msg("<%= flash[:notice]%>")
+<% end %>

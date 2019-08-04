@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <!--<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>-->
+    <!--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
+    <!--[endif]-->
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag :application %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Restore', restore_path %></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container" style="margin-top: 50px">
+    <div class="content-wrapper" style="margin-top: 50px;">
+      <div class="alert-fixed alert alert-info alert-dismissible" style="display: <%= notice ? true : 'none' %>" id="success_div">
+            <% if notice %>
+              <%= raw(notice) %>
+          <% end %>
+      </div>
+      <div class="alert-fixed alert alert-danger alert-dismissible" style="display: <%= alert ? true : 'none' %>" id="error_div">
+            <% if alert %>
+            <%= raw(alert) %>
+          <% end %>
+      </div>
+    </div>
+    <%= yield %>
+  </div>
+  <div id="loading-indicator"><i class="fa fa-spinner fa-spin fa-3x"></i></div>
+  <%= modal_tag('modal') %>
+  </body>
+</html>
