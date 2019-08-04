@@ -18,10 +18,3 @@
 //= require_tree .
 //= require common
 //= require bootstrap-sprockets
-//
-// function display_success_msg(msg) {
-//     $('#success_div').text(msg).show().delay(2000).fadeOut();
-// }
-// function display_error_msg(msg) {
-//     $('#error_div').text(msg).show().delay(2000).fadeOut();
-// }
