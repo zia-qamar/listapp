@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: myapp_production
-  username: myapp
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  database: listziaapp_production
+  username: listziaapp
+  password: <%= ENV['LISTZIAAPP_DATABASE_PASSWORD'] %>
