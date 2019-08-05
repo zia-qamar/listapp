@@ -15,9 +15,9 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create list" do
+  test "should create_list list" do
     assert_difference('List.count') do
-      post lists_url, params: { list: { title: @list.title, trashed: @list.trashed } }
+      post lists_url, params: { list: {title: @list.title, trashed_list: @list.trashed_list } }
     end
 
     assert_redirected_to list_url(List.last)
@@ -34,11 +34,11 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update list" do
-    patch list_url(@list), params: { list: { title: @list.title, trashed: @list.trashed } }
+    patch list_url(@list), params: { list: {title: @list.title, trashed_list: @list.trashed_list } }
     assert_redirected_to list_url(@list)
   end
 
-  test "should destroy list" do
+  test "should destroy_list list" do
     assert_difference('List.count', -1) do
       delete list_url(@list)
     end

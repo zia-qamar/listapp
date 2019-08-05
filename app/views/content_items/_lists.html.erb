@@ -3,16 +3,17 @@
     <div class="row">
       <div class="col-md-6"><b><span class="list_title"><%= list.title %></span></b>
         <% unless list.trashed? %>
-          <%= link_to_remote_modal raw(content_tag(:i, '', class: 'fa fa-edit') + ''), edit_list_path(list), class: 'btn btn-xs'%></div>
+          <%= link_to_remote_modal raw(content_tag(:i, '', class: 'fa fa-edit') + ''), edit_content_item_path(list), class: 'btn btn-xs'%>
           <%end %>
+      </div>
       <div class="col-md-6">
         <div class="pull-right">
           <% if list.trashed? %>
             <%= link_to raw(content_tag(:i, '', class: 'fa fa-circle') + ' Restore'), item_restore_path(id: list, type: 'List'), remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-info'%>
           <% else %>
-            <%= link_to_remote_modal raw(content_tag(:i, '', class: 'fa fa-plus') + ' Add Item'), new_list_item_path(list_id: list), class: 'btn btn-info'%>
+            <%= link_to_remote_modal raw(content_tag(:i, '', class: 'fa fa-plus') + ' Add Item'), new_content_item_path(parent_id: list.id, type: 'ListItem'), class: 'btn btn-info'%>
             <%= link_to raw(content_tag(:i, '', class: 'fa fa-trash') + ' Trash'), list_trash_path(list), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning'%>
-            <%= link_to raw(content_tag(:i, '', class: 'fa fa-trash') + ' Remove'), list, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+            <%= link_to raw(content_tag(:i, '', class: 'fa fa-trash') + ' Remove'), content_item_path(id: list.id), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
 
           <% end %>
         </div>
@@ -25,7 +26,7 @@
       <% if list_items.present? %>
       <% list_items.each do |list_item| %>
         <li class="list-group-item" id="list_item_<%=list_item.id %>">
-          <%= render 'lists/list_item', list_item: list_item %>
+          <%= render 'content_items/list_item', list_item: list_item %>
         </li>
       <% end %>
       <% end %>

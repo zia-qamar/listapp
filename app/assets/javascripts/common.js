@@ -14,8 +14,6 @@ $(function() {
     modal.removeData('bs.modal');
     modal.find('#modal_content').html('');
   });
-  // Modal Callbacks End
-
   $('#loading-indicator').hide();
 
   // Init Tooltips

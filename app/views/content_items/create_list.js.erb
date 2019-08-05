@@ -1,0 +1,7 @@
+$('#modal').modal('toggle');
+<% unless @content_item.errors.present? %>
+$('.panel-group').append("<%= escape_javascript render(partial: 'content_items/lists', locals: { list: @content_item, list_items: [] }) %>")
+display_success_msg("<%= flash[:notice]%>")
+<% else %>
+display_error_msg("<%= flash[:notice]%>")
+<% end %>

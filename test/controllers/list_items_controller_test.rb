@@ -15,9 +15,9 @@ class ListItemsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create list_item" do
+  test "should create_list list_item" do
     assert_difference('ListItem.count') do
-      post list_items_url, params: { list_item: { list_id: @list_item.list_id, title: @list_item.title, trashed: @list_item.trashed } }
+      post list_items_url, params: { list_item: {list_id: @list_item.list_id, title: @list_item.title, trashed: @list_item.trashed } }
     end
 
     assert_redirected_to list_item_url(ListItem.last)
@@ -34,11 +34,11 @@ class ListItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update list_item" do
-    patch list_item_url(@list_item), params: { list_item: { list_id: @list_item.list_id, title: @list_item.title, trashed: @list_item.trashed } }
+    patch list_item_url(@list_item), params: { list_item: {list_id: @list_item.list_id, title: @list_item.title, trashed_list: @list_item.trashed_list } }
     assert_redirected_to list_item_url(@list_item)
   end
 
-  test "should destroy list_item" do
+  test "should destroy_list list_item" do
     assert_difference('ListItem.count', -1) do
       delete list_item_url(@list_item)
     end

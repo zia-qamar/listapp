@@ -2,7 +2,9 @@
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
   <h4 class="modal-title" id="myModalLabel"></h4>
 </div>
-<%= form_for(list, validate: true, html: {id: 'list_item_form', remote: true}) do |f| %>
+<%= form_for(content_item, validate: true, html: {id: 'list_item_form', remote: true}) do |f| %>
+  <%= f.hidden_field :type, value: params[:type] %>
+  <%= f.hidden_field :parent_id, value: params[:parent_id] %>
   <div class="modal-body">
     <div class="row">
       <div class="form-group col-sm-6">

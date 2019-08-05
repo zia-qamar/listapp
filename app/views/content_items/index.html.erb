@@ -1,12 +1,12 @@
 <div class="panel-group">
+  <%= link_to_remote_modal 'Add List', new_content_item_path(type: 'List') %>
   <% @lists.each do |list| %>
-    <%= render 'content_items/lists', list: list, list_items: list.list_items.trashed_items %>
+    <%= render 'lists', list: list, list_items: list.list_items.filter_deleted %>
   <%end %>
-
   <div class="panel panel-default">
     <div class="panel-heading">
       <div class="row">
-        <div class="col-md-6"><b><span class="list_title">Trashed List items without List being trashed</span></b>
+        <div class="col-md-6"><b><span class="list_title">List items with trashed Lists</span></b>
         </div>
       </div>
       <div class="panel-body">

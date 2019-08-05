@@ -29,7 +29,7 @@ class ListItemsTest < ApplicationSystemTestCase
 
     fill_in "List", with: @list_item.list_id
     fill_in "Title", with: @list_item.title
-    check "Trashed" if @list_item.trashed
+    check "Trashed" if @list_item.trashed_list
     click_on "Update List item"
 
     assert_text "List item was successfully updated"

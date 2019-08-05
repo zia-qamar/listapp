@@ -1,6 +1,0 @@
-<div class="panel-group">
-  <%= link_to_remote_modal 'Add List', new_list_path %>
-  <% @lists.each do |list| %>
-    <%= render 'lists', list: list, list_items: list.list_items.not_trashed %>
-  <%end %>
-</div>

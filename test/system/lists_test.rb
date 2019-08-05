@@ -15,7 +15,7 @@ class ListsTest < ApplicationSystemTestCase
     click_on "New List"
 
     fill_in "Title", with: @list.title
-    check "Trashed" if @list.trashed
+    check "Trashed" if @list.trashed_list
     click_on "Create List"
 
     assert_text "List was successfully created"
@@ -27,7 +27,7 @@ class ListsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Title", with: @list.title
-    check "Trashed" if @list.trashed
+    check "Trashed" if @list.trashed_list
     click_on "Update List"
 
     assert_text "List was successfully updated"
