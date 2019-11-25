@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here is the assignment:
 
-Things you may want to cover:
+Consider an example where List has many ListItem.
 
-* Ruby version
+1. Build a page to create, edit and list all the lists and their list items
 
-* System dependencies
+2. Display all the items of the list below each list
 
-* Configuration
+3. Provide a button called destroy alongside the list and the list items to soft delete the list and their items
 
-* Database creation
+4. If the list is destroyed the items should also be destroyed
 
-* Database initialization
+5. If the items are destroyed the list should not get destroyed
 
-* How to run the test suite
+Write the soft delete logic in a module that can be re-used in other models as well.
+7. Provide a button called delete alongside the list and the list items to hard delete the list and their items
 
-* Services (job queues, cache servers, search engines, etc.)
+8. Build another page called trash to list all the list and list items that are soft deleted
 
-* Deployment instructions
+9. Provide a button called restore alongside the item/list that is soft deleted. Clicking on the button should restore the list or the list item correspondingly.
 
-* ...
+Link to live application https://listziaapp.herokuapp.com/
